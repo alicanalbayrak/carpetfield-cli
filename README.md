@@ -1,2 +1,0 @@
-# carpetfield-cli
-carpetfield-cli
