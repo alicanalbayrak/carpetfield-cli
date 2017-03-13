@@ -1,29 +1,30 @@
-<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-          data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false"
-          aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <a class="navbar-brand" href="#">{{title}}</a>
-
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-    <ul class="navbar-nav mr-auto">
-      <li [routerLink]="'/organizations-center'" class="nav-item" routerLinkActive="active">
-        <a class="nav-link">Organizations </a>
-      </li>
-      <li [routerLink]="'/users'" class="nav-item" routerLinkActive="active">
-        <a class="nav-link">Users </a>
-      </li>
-      <!--<li class="nav-item dropdown">-->
-      <!--<a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>-->
-      <!--<div class="dropdown-menu" aria-labelledby="dropdown01">-->
-      <!--<a class="dropdown-item">Action</a>-->
-      <!--<a class="dropdown-item">Another action</a>-->
-      <!--<a class="dropdown-item">Something else here</a>-->
-      <!--</div>-->
-      <!--</li>-->
-    </ul>
-    <button [routerLink]="['/login']" class="btn btn-outline-info mr-2">Login</button>
-    <button [routerLink]="['/signup']" class="btn btn-outline-info">Sign up</button>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+              aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" [routerLink]="['/']">{{title}}</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li [routerLink]="['/organizations-center']" routerLinkActive="active"><a>Organizations</a></li>
+        <li [routerLink]="['/users']" routerLinkActive="active"><a>Users</a></li>
+      </ul>
+      <div class="navbar-header navbar-right">
+        <ul class="nav navbar-nav">
+          <li>
+            <a [routerLink]="['/login']" *ngIf="!authService.isAuthenticated()"  routerLinkActive="active"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> Login</a>
+          </li>
+          <li>
+            <a [routerLink]="['/users']" *ngIf="authService.isAuthenticated()"  routerLinkActive="active"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{authService.currentUser.email}} </a>
+          </li>
+        </ul>
+      </div>
+    </div><!--/.nav-collapse -->
   </div>
 </nav>

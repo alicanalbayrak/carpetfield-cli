@@ -8,7 +8,7 @@ import {UserDetailComponent} from './user-detail.component';
 
 const usersRoutes: Routes = [
   { path: 'users',  component: UserListComponent, canActivate: [AuthGuard]},
-  { path: 'user/:id', component: UserDetailComponent, canActivate: [AuthGuard] }
+  { path: 'currentUser/:id', component: UserDetailComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

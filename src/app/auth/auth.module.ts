@@ -1,5 +1,7 @@
 import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
+import {FormsModule} from '@angular/forms'
+
 import {AuthService} from "./auth.service";
 import {AuthGuard} from "./auth-guard.service";
 import {LoginComponent} from "./login.component";
@@ -10,6 +12,7 @@ import {AuthRoutingModule} from './auth-routing.module';
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
     AuthRoutingModule
   ],
   declarations: [
@@ -17,8 +20,7 @@ import {AuthRoutingModule} from './auth-routing.module';
     SignupComponent
   ],
   providers: [
-    AuthGuard,
-    AuthService
+    AuthGuard
   ]
 })
 export class AuthModule {

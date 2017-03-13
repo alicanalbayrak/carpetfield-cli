@@ -1,24 +1,45 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
-import { Observable } from 'rxjs/Observable';
+import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/delay';
 import {User} from "../user/user.service";
 
+export interface IUser {
+  id: string,
+  name: string,
+  email: string,
+  password: string
+}
+
 @Injectable()
 export class AuthService {
 
-  user: User;
+  currentUser: IUser;
 
   // store the URL so we can redirect after logging in
   redirectUrl: string;
 
-  login(): Observable<boolean> {
-    return Observable.of(true).delay(1000).do(val => this.user);
+  login(email: string, password: string): Observable<boolean> {
+    return Observable.of(true).delay(1000).do(
+      val => this.currentUser = {
+        id: "1",
+        name: "alican",
+        email: email,
+        password: password
+      }
+    );
+  }
+
+
+  isAuthenticated(){
+    return !!this.currentUser;
   }
 
   logout(): void {
-    this.user = null;
+    this.currentUser = null;
   }
+
+
 }

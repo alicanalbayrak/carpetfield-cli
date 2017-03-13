@@ -43,7 +43,7 @@ export class UserListComponent implements OnInit {
   }
 
   onSelect(user: User) {
-    this.router.navigate(['/user', user.id]);
+    this.router.navigate(['/currentUser', user.id]);
   }
 
 }

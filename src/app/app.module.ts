@@ -9,6 +9,7 @@ import {AuthModule} from "./auth/auth.module";
 import {OrganizationModule} from "./organization/organization.module";
 import {UserModule} from "./user/user.module";
 import {AppRoutingModule} from "./app-routing.module";
+import {AuthService} from "./auth/auth.service";
 
 @NgModule({
   declarations: [
@@ -25,8 +26,12 @@ import {AppRoutingModule} from "./app-routing.module";
     AuthModule,
     AppRoutingModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    AuthService
+  ],
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule {
 }
