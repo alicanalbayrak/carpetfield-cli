@@ -3,7 +3,9 @@ import {Component, OnInit} from '@angular/core';
 @Component({
   selector: 'app-organization',
   template: `
-<h1>Organization</h1><hr>
+    <div class="page-header">
+        <h1>Organization</h1>      
+    </div>
 `
 })
 export class OrganizationComponent implements OnInit {
