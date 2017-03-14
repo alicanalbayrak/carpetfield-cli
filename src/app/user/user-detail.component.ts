@@ -36,6 +36,7 @@ export class UserDetailComponent implements OnInit {
       .switchMap((params: Params) => this.service.getUser(+params['id']))
       .subscribe((user: User) => this.user = user);
   }
+
   gotoUsers() {
     let userId = this.user ? this.user.id : null;
     this.router.navigate(['/users', { id: userId }]);

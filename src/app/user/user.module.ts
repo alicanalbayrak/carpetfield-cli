@@ -6,7 +6,13 @@ import {UserListComponent} from './user-list.component';
 import {UserDetailComponent} from './user-detail.component';
 
 import {UserRoutingModule} from './user-routing.module';
-import {UserService} from './user.service'
+import {UserService} from './user.service';
+import { ProfileComponent } from './profile.component';
+import { UserMatchComponent } from './user-match.component';
+import { UserOrganizationsComponent } from './user-organizations.component';
+import { UserInvitationsComponent } from './user-invitations.component';
+import { UserSettingsComponent } from './user-settings.component';
+import { UserAnnouncementComponent } from './user-announcement.component'
 
 @NgModule({
   imports: [
@@ -14,7 +20,7 @@ import {UserService} from './user.service'
     FormsModule,
     UserRoutingModule
   ],
-  declarations: [UserListComponent, UserDetailComponent],
+  declarations: [UserListComponent, UserDetailComponent, ProfileComponent, UserMatchComponent, UserOrganizationsComponent, UserInvitationsComponent, UserSettingsComponent, UserAnnouncementComponent],
   providers:[
     UserService
   ]

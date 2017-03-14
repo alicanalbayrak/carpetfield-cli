@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel with-nav-tabs panel-default">
+      <div class="panel-heading">
+        <ul class="nav nav-tabs">
+          <li class="active"><a  (click)="switchTab('matches')" data-toggle="tab">Maçlarım</a></li>
+          <li><a (click)="switchTab('organizations')" data-toggle="tab">Organizasyonlarım</a></li>
+          <li><a (click)="switchTab('invitations')" data-toggle="tab">Davetiyelerim</a></li>
+          <li><a (click)="switchTab('announcements')" data-toggle="tab">Duyurularım</a></li>
+          <li><a (click)="switchTab('settings')" data-toggle="tab">Ayarlarım</a></li>
+          <!--<li class="dropdown">-->
+            <!--<a (click)="switchTab('settings')" data-toggle="dropdown">Ayarlarım <span class="caret"></span></a>-->
+            <!--<ul class="dropdown-menu" role="menu">-->
+              <!--<li><a data-toggle="tab">Default 4</a></li>-->
+              <!--<li><a data-toggle="tab">Default 5</a></li>-->
+            <!--</ul>-->
+          <!--</li>-->
+        </ul>
+      </div>
+      <div class="panel-body">
+        <div class="tab-content">
+          <div class="tab-pane fade in active" id="tab1default">
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
