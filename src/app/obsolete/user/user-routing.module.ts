@@ -1,7 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-
-import {AuthGuard} from '../auth/auth-guard.service'
+import {AuthGuard} from '../../auth/auth-guard.service';
 
 import {UserListComponent} from './user-list.component';
 import {ProfileComponent} from './profile.component';
@@ -10,7 +9,6 @@ import {UserMatchComponent} from './user-match.component';
 import {UserOrganizationsComponent} from './user-organizations.component';
 import {UserAnnouncementComponent} from './user-announcement.component';
 import {UserSettingsComponent} from './user-settings.component';
-
 
 const usersRoutes: Routes = [
   {path: 'users', component: UserListComponent, canActivate: [AuthGuard]},

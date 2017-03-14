@@ -11,9 +11,12 @@
       <a class="navbar-brand" [routerLink]="['/']">{{title}}</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li [routerLink]="['/organizations-center']" routerLinkActive="active"><a>Organizations</a></li>
-        <li [routerLink]="['/users']" routerLinkActive="active"><a>Users</a></li>
+      <ul *ngIf="authService.isAuthenticated()" class="nav navbar-nav">
+        <li [routerLink]="['/game']" routerLinkActive="active"><a>Matches</a></li>
+        <li [routerLink]="['/organization']" routerLinkActive="active"><a>Organizations</a></li>
+        <li [routerLink]="['/invitation']" routerLinkActive="active"><a>Invitations</a></li>
+        <li [routerLink]="['/announcement']" routerLinkActive="active"><a>Announcements</a></li>
+        <li [routerLink]="['/settings']" routerLinkActive="active"><a>Settings</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">

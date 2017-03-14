@@ -1,31 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { OrganizationComponent } from './organization.component';
 
-// routing module
-import { OrganizationsRoutingModule } from './organizations-routing.module';
-
-// service
-import {OrganizationService} from './organization.service';
-
-// components
-import { OrganizationsCenterComponent } from './organizations-center.component';
-import { OrganizationHomeComponent } from './organization-home.component';
-import { OrganizationListComponent } from './organization-list.component';
-import { OrganizationDetailsComponent } from './organization-details.component';
+import {OrganizationRoutingModule} from './organization-routing.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    OrganizationsRoutingModule
+    OrganizationRoutingModule
   ],
-  declarations: [
-    OrganizationsCenterComponent,
-    OrganizationHomeComponent,
-    OrganizationListComponent,
-    OrganizationDetailsComponent
-  ],
-  providers: [
-    OrganizationService
-  ]
+  declarations: [OrganizationComponent]
 })
 export class OrganizationModule { }

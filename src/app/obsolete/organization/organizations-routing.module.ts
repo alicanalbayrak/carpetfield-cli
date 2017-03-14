@@ -9,7 +9,7 @@ import {OrganizationHomeComponent} from './organization-home.component';
 import {OrganizationListComponent} from './organization-list.component';
 import {OrganizationDetailsComponent} from './organization-details.component';
 
-import {AuthGuard} from '../auth/auth-guard.service'
+import {AuthGuard} from '../../auth/auth-guard.service'
 
 const organizationsRoutes: Routes = [
   {

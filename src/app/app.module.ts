@@ -6,10 +6,16 @@ import {AppComponent} from "./app.component";
 import {NavbarComponent} from "./navbar/navbar.component";
 import {NotFoundComponent} from "./not-found.component";
 import {AuthModule} from "./auth/auth.module";
-import {OrganizationModule} from "./organization/organization.module";
-import {UserModule} from "./user/user.module";
 import {AppRoutingModule} from "./app-routing.module";
 import {AuthService} from "./auth/auth.service";
+
+// new form
+import {GameModule} from './game/game.module';
+import {OrganizationModule} from './organization/organization.module';
+import {AnnouncementModule} from './announcement/announcement.module';
+import {InvitationModule} from './invitation/invitation.module';
+import {SettingsModule} from './settings/settings.module';
+
 
 @NgModule({
   declarations: [
@@ -21,8 +27,11 @@ import {AuthService} from "./auth/auth.service";
     BrowserModule,
     FormsModule,
     HttpModule,
+    GameModule,
     OrganizationModule,
-    UserModule,
+    AnnouncementModule,
+    InvitationModule,
+    SettingsModule,
     AuthModule,
     AppRoutingModule
   ],
