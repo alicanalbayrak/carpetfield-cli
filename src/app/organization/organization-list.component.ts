@@ -11,7 +11,8 @@ import {Observable} from "rxjs";
       <li class="list-group-item" *ngFor="let organization of organizations | async"
         (click)="onSelect(organization)"
         [class.active]="isSelected(organization)">
-          <span class="badge badge-info">{{ organization.id }}</span>
+          <span class="badge badge-info">JOIN</span>
+          <span class="badge badge-info">Leave</span>
           {{ organization.name }}
       </li>
     </ul>

@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-
+import {Router}      from '@angular/router';
 import {AuthService} from '../auth/auth.service';
 
 @Component({
@@ -10,8 +10,15 @@ import {AuthService} from '../auth/auth.service';
 export class NavbarComponent {
   title: string = "Carpetfield";
 
-  constructor(private authService:AuthService) {
+  constructor(private authService: AuthService,
+              private router: Router) {
 
+  }
+
+  doLogOut() {
+    console.log("doLogout");
+    this.authService.logout();
+    this.router.navigate(['']);
   }
 
 }

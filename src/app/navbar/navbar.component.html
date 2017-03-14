@@ -27,9 +27,9 @@
           </a>
           <ul class="dropdown-menu">
             <li role="separator" class="divider"></li>
-            <li [routerLink]="['/users']" routerLinkActive="active"><a>Profile</a></li>
+            <li [routerLink]="['/user', authService.currentUser.id]" routerLinkActive="active"><a>Profile</a></li>
             <li role="separator" class="divider"></li>
-            <li><a>Logout</a></li>
+            <li (click)="doLogOut()" ><a>Logout</a></li>
           </ul>
         </li>
       </ul>
