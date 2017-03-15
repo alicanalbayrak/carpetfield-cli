@@ -8,6 +8,7 @@ import {NotFoundComponent} from "./not-found.component";
 import {AuthModule} from "./auth/auth.module";
 import {AppRoutingModule} from "./app-routing.module";
 import {AuthService} from "./auth/auth.service";
+import {UserService} from './auth/user.service';
 
 // new form
 import {GameModule} from './game/game.module';
@@ -36,7 +37,8 @@ import {SettingsModule} from './settings/settings.module';
     AppRoutingModule
   ],
   providers: [
-    AuthService
+    AuthService,
+    UserService
   ],
   bootstrap: [
     AppComponent

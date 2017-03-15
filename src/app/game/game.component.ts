@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Match} from './Match';
 
+import {UserService} from '../auth/user.service';
+
 @Component({
   selector: 'app-game',
   template: `
@@ -32,15 +34,21 @@ import {Match} from './Match';
 export class GameComponent implements OnInit {
 
   games = [
-      new Match("AYESAS", "Haftalık maçımız", "kılıçarslan", "10 aralık"),
-      new Match("GOOGLE", "Aylık maçımız", "Nevada", "12 aralık")
+    new Match("AYESAS", "Haftalık maçımız", "kılıçarslan", "10 aralık"),
+    new Match("GOOGLE", "Aylık maçımız", "Nevada", "12 aralık")
   ];
 
 
-  constructor() {
+  constructor(private userService: UserService) {
   }
 
   ngOnInit() {
+    this.userService.getUsers()
+      .then(users => {
+        for(let user of users){
+          console.log(user.email + " - " + user.passwordHash);
+        }
+      });
   }
 
 }
