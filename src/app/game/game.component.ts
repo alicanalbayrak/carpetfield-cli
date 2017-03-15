@@ -34,7 +34,7 @@ export class GameComponent implements OnInit {
 
   games: Game[];
 
-  constructor(private  gameService: GameService) {
+  constructor(private gameService: GameService) {
   }
 
   ngOnInit() {
