@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Match} from './Match';
-
-import {UserService} from '../auth/user.service';
+import {Game} from "../shared/Game";
+import {GameService} from './game.service';
 
 @Component({
   selector: 'app-game',
@@ -20,10 +19,10 @@ import {UserService} from '../auth/user.service';
     <th></th>
   </tr>
   <tr *ngFor="let game of games">
-    <td>{{game.organization}}</td>
-    <td>{{game.match}}</td>
-    <td>{{game.place}}</td>
-    <td>{{game.date}}</td>
+    <td>{{game.name}}</td>
+    <td>{{game.description}}</td>
+    <td>{{game.address}}</td>
+    <td>{{game.timeOfStart}}</td>
     <td><button type="button" class="btn btn-success">Success</button></td>
     <td><button type="button" class="btn btn-danger">Danger</button></td>
   </tr>
@@ -33,22 +32,14 @@ import {UserService} from '../auth/user.service';
 
 export class GameComponent implements OnInit {
 
-  games = [
-    new Match("AYESAS", "Haftalık maçımız", "kılıçarslan", "10 aralık"),
-    new Match("GOOGLE", "Aylık maçımız", "Nevada", "12 aralık")
-  ];
+  games: Game[];
 
-
-  constructor(private userService: UserService) {
+  constructor(private  gameService: GameService) {
   }
 
   ngOnInit() {
-    this.userService.getUsers()
-      .then(users => {
-        for(let user of users){
-          console.log(user.email + " - " + user.passwordHash);
-        }
-      });
+    this.gameService.getAllGames()
+      .then(games => this.games = games);
   }
 
 }

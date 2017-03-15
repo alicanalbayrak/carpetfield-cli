@@ -1,22 +1,21 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import {Headers, Http} from '@angular/http';
-
 import 'rxjs/add/operator/toPromise';
 
-import {User} from '../shared/User';
+import {Game} from "../shared/Game";
 
 @Injectable()
-export class UserService {
+export class GameService {
 
   private headers = new Headers({'Content-Type': 'application/json'});
 
   constructor(private http: Http) {
   }
 
-  getUsers(): Promise<User[]> {
-    return this.http.get("http://localhost:8080/users")
+  getAllGames(): Promise<Game[]> {
+    return this.http.get("http://localhost:8080/games")
       .toPromise()
-      .then(response => response.json() as User[])
+      .then(response => response.json() as Game[])
       .catch(this.handleError);
   }
 
