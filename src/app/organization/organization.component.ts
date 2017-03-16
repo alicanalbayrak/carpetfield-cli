@@ -1,38 +1,36 @@
 import {Component, OnInit} from '@angular/core';
-import {Organization} from "../shared/Organization";
-import {OrganizationService} from './organization.service';
+import {ActivatedRoute, Router, Params} from '@angular/router'
 
 @Component({
   selector: 'app-organization',
   template: `
     <div class="page-header">
+        <div class='btn-toolbar pull-right'>
+          <div class='btn-group'>
+            <button type='button' class='btn btn-primary' (click)="goToCreateOrganization()">Create Organization</button>
+          </div>
+        </div>
         <h1>Organization</h1>      
     </div>
     
-    <table class="table table-striped">
-      <tr>
-        <th>Organizasyon</th>
-        <th>Zaman</th>
-        <th></th>
-      </tr>
-      <tr *ngFor="let org of organizations">
-        <td>{{org.name}}</td>
-        <td>{{org.description}}</td>
-        <td><button type="button" class="btn btn-success">Success</button></td>
-      </tr>
-    </table>`
+    <router-outlet></router-outlet>
+`
 })
 
 export class OrganizationComponent implements OnInit {
 
-  organizations: Organization[];
 
-  constructor(private organizationService: OrganizationService) {
+  constructor(private route: ActivatedRoute,
+              private router: Router) {
   }
 
   ngOnInit() {
-    this.organizationService.getAllOrganizations()
-      .then(orgs => this.organizations = orgs);
+
+  }
+
+  goToCreateOrganization() {
+    console.log("deneme");
+    this.router.navigate(['create'], { relativeTo: this.route });
   }
 
 }

@@ -4,6 +4,8 @@ import { OrganizationComponent } from './organization.component';
 
 import {OrganizationRoutingModule} from './organization-routing.module';
 import {OrganizationService} from "./organization.service";
+import { OrganizationListComponent } from './organization-list.component';
+import { OrganizationCreateComponent } from './organization-create.component';
 
 @NgModule({
   imports: [
@@ -11,7 +13,9 @@ import {OrganizationService} from "./organization.service";
     OrganizationRoutingModule
   ],
   declarations: [
-    OrganizationComponent
+    OrganizationComponent,
+    OrganizationListComponent,
+    OrganizationCreateComponent
   ],
   providers: [
     OrganizationService

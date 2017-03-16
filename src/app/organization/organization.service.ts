@@ -1,21 +1,28 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Headers, Http} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
-import {Organization} from "../shared/Organization";
+import {AuthService} from '../auth/auth.service'
+
+export interface UserOrganization{
+  organizationId: number;
+  name: string;
+  owner: boolean;
+}
 
 @Injectable()
 export class OrganizationService {
 
   private headers = new Headers({'Content-Type': 'application/json'});
 
-  constructor(private http: Http) {
+  constructor(private http: Http,
+              private authService: AuthService) {
   }
 
-  getAllOrganizations(): Promise<Organization[]> {
-    return this.http.get("http://localhost:8080/organizations")
+  getAllOrganizations(): Promise<UserOrganization[]> {
+    return this.http.get("http://localhost:8080/users/"+this.authService.currentUser.id+"/organizations")
       .toPromise()
-      .then(response => response.json() as Organization[])
+      .then(response => response.json() as UserOrganization[])
       .catch(this.handleError);
   }
 

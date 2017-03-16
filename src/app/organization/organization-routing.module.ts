@@ -3,9 +3,19 @@ import {RouterModule, Routes} from '@angular/router';
 import {AuthGuard} from '../auth/auth-guard.service';
 
 import {OrganizationComponent} from './organization.component';
+import {OrganizationListComponent} from './organization-list.component';
+import {OrganizationCreateComponent} from './organization-create.component';
 
 const organizationRoutes: Routes = [
-  {path: 'organization', component: OrganizationComponent, canActivate: [AuthGuard]}
+  {
+    path: 'organization',
+    component: OrganizationComponent,
+    canActivate: [AuthGuard],
+    children: [
+      {path: '', component: OrganizationListComponent, pathMatch: 'full'},
+      {path: 'create', component: OrganizationCreateComponent}
+    ]
+  }
 ];
 
 @NgModule({
@@ -16,4 +26,5 @@ const organizationRoutes: Routes = [
     RouterModule
   ]
 })
-export class OrganizationRoutingModule { }
+export class OrganizationRoutingModule {
+}
